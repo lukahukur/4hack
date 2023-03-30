@@ -1,0 +1,262 @@
+.md_text {
+  height: 80vh;
+  width: 650px;
+  @apply rounded-md outline-none h-screen flex text-base bg-gray-900 text-gray-300;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-500;
+  }
+}
+
+@mixin defaultStyles {
+  h1 {
+    display: block;
+    padding-bottom: 12px;
+    font-family: OpenSansBold;
+    line-height: 45px;
+    @apply dark:font-extrabold mb-5 
+          dark:text-transparent text-6xl dark:bg-clip-text dark:bg-gradient-to-r dark:from-purple-400 dark:to-pink-600;
+  }
+
+  h2 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    font-family: OpenSansBold;
+    @apply dark:text-neutral-100;
+  }
+
+  h3 {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: OpenSansBold;
+    @apply dark:text-neutral-100;
+  }
+
+  h4 {
+    display: block;
+    font-size: 1.2em;
+    margin-top: 1.33em;
+    margin-bottom: 0.5em;
+    font-family: OpenSansBold;
+    @apply dark:text-neutral-100;
+  }
+  p {
+    word-wrap: break-word;
+    font-family: OpenSansRegular;
+    @apply mb-6 overflow-hidden rounded-lg text-base;
+  }
+  blockquote {
+    @apply bg-purple-200 rounded-lg text-purple-600 dark:bg-pink-200 dark:text-pink-500;
+    p {
+      @apply p-3;
+
+      code {
+        @apply text-purple-600 bg-transparent;
+      }
+    }
+  }
+}
+@mixin code {
+  padding-bottom: 2px;
+  @apply text-red-500 bg-red-100 dark:bg-purple-600 dark:text-purple-100 rounded-md px-1;
+}
+
+@mixin codes {
+  ol code {
+    @include code;
+  }
+  h3 code {
+    @include code;
+  }
+  p code {
+    @include code;
+  }
+  ul code {
+    @include code;
+  }
+  blockquote p code {
+    @apply dark:bg-pink-200 dark:text-pink-700;
+  }
+  pre {
+    @apply mb-6;
+
+    code {
+      &::-webkit-scrollbar {
+        width: 2px;
+        height: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        @apply rounded-b-lg;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        @apply bg-neutral-600 rounded-full;
+      }
+      @apply rounded-md;
+    }
+  }
+}
+
+@mixin common {
+  @include defaultStyles;
+  @include codes;
+
+  time {
+    @apply font-serif text-gray-500 mb-6 flex text-base;
+  }
+
+  img {
+    @apply w-max rounded-md;
+  }
+
+  a {
+    @apply underline text-blue-600;
+  }
+  ul {
+    @apply ml-10 m-4 text-xl;
+    li {
+      @apply list-disc;
+    }
+  }
+  ol {
+    @apply ml-10 m-4 text-xl;
+    li {
+      @apply list-decimal;
+    }
+  }
+}
+
+.md_text_display {
+  width: 100%;
+  max-width: 850px;
+  @include common;
+  @apply pl-4 pr-4 h-max font-OpenSans text-black dark:text-neutral-300;
+
+  h1 {
+    line-height: 1.1;
+  }
+  p {
+    @apply text-xl;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .md_text_display {
+    // width: 500px;
+    h1 {
+      font-size: 3em;
+      margin-top: 0.67em;
+      margin-bottom: 0.67em;
+    }
+
+    h2 {
+      font-size: 1.6em;
+      margin-top: 0.83em;
+      margin-bottom: 0.83em;
+    }
+
+    h3 {
+      font-size: 1.2em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    h4 {
+      font-size: 0.9em;
+      margin-top: 1.33em;
+      margin-bottom: 0.5em;
+    }
+
+    code,
+    ul,
+    ol,
+    p {
+      @apply text-base;
+    }
+  }
+}
+
+// @media screen and (max-width: 499px) {
+//   .md_text_display {
+//     width: 420px;
+//   }
+// }
+// @media screen and (max-width: 428px) {
+//   .md_text_display {
+//     width: 380px;
+//   }
+// }
+// @media screen and (max-width: 375px) {
+//   .md_text_display {
+//     width: 350px;
+//   }
+// }
+// @media screen and (max-width: 330px) {
+//   .md_text_display {
+//     width: 300px;
+//   }
+// }
+
+.md_text_display_editor {
+  width: 630px;
+  @include common;
+  @apply pl-4 pr-4 h-max  font-OpenSans text-black;
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.4em;
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+
+  ul,
+  ol {
+    @apply ml-8 text-base;
+  }
+}
+
+.dropDownWrapper {
+  @apply flex flex-col items-center justify-center;
+}
+.dropDown {
+  @apply w-48 hidden bg-slate-600 absolute h-36 z-30 overflow-y-scroll;
+}
+.dropDownWrapper:hover .dropDown {
+  @apply flex flex-col;
+}
+
+.mapPosts {
+  &:nth-child(odd) {
+    background-color: #131624;
+  }
+  width: 99%;
+  @apply flex justify-between  rounded-md h-12 items-center m-2 p-2 hover:cursor-pointer;
+}
+@media screen and (max-width: 1536px) {
+  .md_text {
+    width: 600px;
+    font-size: 15px;
+  }
+}

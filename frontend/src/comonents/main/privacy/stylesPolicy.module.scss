@@ -1,0 +1,29 @@
+.wrapper {
+  @apply w-full bg-neutral-900 flex justify-start pl-2 sm:justify-center sm:p-0 text-neutral-400 font-OpenSans;
+  span {
+    width: 90vw;
+    max-width: 750px;
+    @apply block flex-wrap mb-10 text-justify;
+  }
+  div {
+    @apply mb-2 mt-3;
+  }
+  h1 {
+    @apply mb-2;
+  }
+  h2 {
+    @apply mt-4  mb-2;
+  }
+  p {
+    @apply p-1 text-sm;
+  }
+  a {
+    @apply text-cyan-600;
+  }
+  ul {
+    @apply pl-4;
+    li {
+      @apply list-disc;
+    }
+  }
+}

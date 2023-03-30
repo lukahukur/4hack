@@ -1,0 +1,26 @@
+.nav_main_scroll {
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 5px;
+  }
+  scrollbar-width: thin;
+  &::-webkit-scrollbar-track:hover {
+    @apply rounded-full dark:bg-neutral-600 bg-neutral-300;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    @apply dark:bg-zinc-800 bg-zinc-600  rounded-full;
+  }
+
+  @apply overflow-x-scroll mb-3 sm:w-600px w-80;
+}
+
+.main_wrapper {
+  max-width: 1248px;
+  width: 100%;
+  @apply flex justify-start;
+}
+
+.header {
+  @apply main_wrapper pl-3 flex items-center;
+}

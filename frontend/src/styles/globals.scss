@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: NotoSansRegular;
+  src: url('../../Fonts/IBMPlexSans-Regular.ttf');
+}
+@font-face {
+  font-family: NotoSansBold;
+  src: url('../../Fonts/IBMPlexSans-Bold.ttf');
+}
+@font-face {
+  font-family: OpenSansBold;
+  src: url('../../Fonts/OpenSans-Bold.ttf');
+}
+@font-face {
+  font-family: OpenSansRegular;
+  src: url('../../Fonts/OpenSans-Regular.ttf');
+}
+
+@layer base {
+  h1 {
+    @apply font-bold text-3xl;
+  }
+  h2 {
+    @apply font-bold text-2xl;
+  }
+  h3 {
+    @apply font-bold text-xl;
+  }
+}
+body {
+  @apply dark:bg-black bg-neutral-100;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply bg-neutral-400 dark:bg-black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-neutral-600;
+  }
+}
